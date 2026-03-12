@@ -19,6 +19,13 @@ def clean_text(text):
     text = text.strip()
 
     return text
+df = pd.read_csv("data/raw/fake_news_dataset.csv")
+
+df["text"] = df["text"].apply(clean_text)
+
+df.to_csv("data/processed/cleaned_news.csv", index=False)
+
+print("Clean dataset saved to data/processed/")
 
 def preprocess_data(df):
 
